@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Ứng dụng chuyển đổi giữa feet và meters </h3>
+<form action=""method="post">
+    <span>Amount</span>
+    <input id="amount1" oninput="convert()" type="text" name="amount">
+    From Currency
+    <select id="from">
+        <option name="Feet" value="1">Feet</option>
+        <option name="Met" value="0.305">Meters</option>
+    </select>
+    <span>To Currency</span>
+    <select id="to">
+        <option name="Feet" value="1">Feet</option>
+        <option name="Met" value="0.305">Meters</option>
+    </select>
+    <button  type="button" onclick="convert();">Convert</button>
+    <script>
+function convert() {
+    let amount = document.getElementById("amount1");
+    let from = +document.getElementById("from").value;
+    let to = +document.getElementById("to").value;
+    let result=(amount.value*to/from).toFixed(3);
+    let selectTo = document.getElementById("to");
+    document.getElementById("display").innerHTML= result +" "+ selectTo.options[selectTo.selectedIndex].getAttribute("name");
+}
+    </script>
+</form>
+<p style="color: blue">Result = <span id="display"> </span></p>
+</body>
+</html>
